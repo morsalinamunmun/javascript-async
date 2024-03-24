@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--daisyui tailwind css link-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.3/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="mt-20 ml-20">
+        <h3 id="time" class="ml-28 font-bold mb-12 text-3xl">00</h3>
+    <button id="start" onclick="handleStart()" class="btn btn-primary ">Start</button>
+    <button id="stop" class="btn btn-error" onclick="handleStop()">Stop</button>
+    <button id="reset" class="btn btn-accent" onclick="handelReset()">Reset</button>
+    </section>
+
+    <script>
+        let time = 0;
+        let intervalId;
+        const handleStart = () =>{
+            intervalId =  setInterval(() =>{
+            const showTime = document.getElementById('time');
+            time++;
+            showTime.innerText = time;
+            //console.log('time');
+            }, 1000)
+        }
+
+        const handleStop = () =>{
+           //console.log('monu');
+            clearInterval(intervalId);
+        }
+
+        const handelReset = () =>{
+            const showTime = document.getElementById('time');
+            showTime.innerText = '00';
+        }
+    </script>
+</body>
+</html>
